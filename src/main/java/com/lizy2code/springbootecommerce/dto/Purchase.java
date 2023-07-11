@@ -15,5 +15,16 @@ public class Purchase {
     private Address shippingAddress;
     private Address billingAddress;
     private Order order;
-    private Set<OrderItem> orderItemSet;
+    private Set<OrderItem> orderItems;
+
+    @Override
+    public String toString() {
+        return "Purchase{" +
+                "customer=" + customer +
+                ", shippingAddress=" + shippingAddress +
+                ", billingAddress=" + billingAddress +
+                ", order=" + order +
+                ", orderItemSet=" + orderItems +
+                '}';
+    }
 }

@@ -27,6 +27,9 @@ public class CheckoutServiceImpl implements CheckoutService{
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
+        // logging the purchase from front end
+        System.out.println("review purchase from front end: " + purchase);
+
         // retrieve the info from DTO
         Order order = purchase.getOrder();
 
@@ -35,7 +38,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         order.setOrderTrackingNumber(orderTrackingNumber);
 
         // populate order with orderItems
-        Set<OrderItem> orderItems = purchase.getOrderItemSet();
+        Set<OrderItem> orderItems = purchase.getOrderItems();
         orderItems.forEach(item -> order.add(item));
 
         // populate order with billing and shipping address
